@@ -1,0 +1,19 @@
+base_dir: './youtube-vis/train' # YT-VIS Train directory
+videos: './AirObject/splits/ytvis_train_train.txt' # YT-VIS Training Videos List
+log_dir: './experiments/train_netvlad' # Logging directory
+netvlad_model_path: './models/netvlad_model_coco.pth' # COCO pre-trained NetVLAD Model path
+resume: False
+sum_iter: 
+optimizer_path: ''
+model:
+  netvlad:
+    descriptor_dim: 256
+    vlad_numc: 32
+    train:
+      batch_size: 16
+      positive_margin: 1
+      negative_margin: 0.2
+      lambda_d: 1
+      epochs: 15
+      lr: 0.0001
+      checkpoint: 500

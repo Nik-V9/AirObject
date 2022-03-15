@@ -1,0 +1,23 @@
+base_dir: '' # Directory with images, segmentations and superpoint features
+output_dir: '' # Directory to save global tracking results
+save_video: True # Save tracking video
+video_path: '' # Output path for tracking video
+match_threshold:  # [-1.0 to 1.0]
+###
+method: 'airobj' # ['airobj', 'airobj_single_frame', 'airobj_single_frame_track']
+# 'airobj_single_frame': AirObject Single Frame Descriptors
+# 'airobj_single_frame_track': AirObject Single Frame Descriptors - Updating the Global Object Dictionary as the objects are tracked
+# 'airobj': AirObject Temporal Descriptors
+airobj_model_path: './models/airobject_model.pth'
+model:
+  airobj:
+    descriptor_dim: 256
+    points_encoder_dims: [2, 4, 8, 16]
+    hidden_dim: 512
+    dropout: 0
+    alpha: 0.2
+    nheads: 4
+    nout: 2048
+    temporal_encoder_dim: 2048 # AirObject
+    temporal_encoder_out_dim: 2048
+    temporal_kernel_size: 1

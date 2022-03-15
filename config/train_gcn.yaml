@@ -1,0 +1,25 @@
+bbase_dir: './youtube-vis/train' # YT-VIS Train directory
+videos: './AirObject/splits/ytvis_train_train.txt' # YT-VIS Training Videos List
+log_dir: './experiments/train_gcn' # Logging directory
+graph_model_path: './models/gcn_model_coco.pth' # COCO pre-trained Graph Attention Encoder path
+resume: False
+sum_iter: 
+optimizer_path: ''
+model:
+  gcn:
+    descriptor_dim: 256
+    points_encoder_dims: [2, 4, 8, 16]
+    hidden_dim: 512
+    dropout: 0
+    alpha: 0.2
+    nheads: 4
+    nout: 2048
+    train:
+      batch_size: 16
+      positive_margin: 1
+      negative_margin: 0.2
+      lambda_d: 1
+      epochs: 15
+      lr: 0.0001
+      checkpoint: 500
+      weight_lambda: [0.1, 0.1]

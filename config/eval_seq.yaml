@@ -1,0 +1,32 @@
+dataset: 'OVIS' # Name of dataset: ['YT-VIS', 'UVO', 'OVIS', 'TAO']
+base_dir: './OVIS' # Base directory of dataset
+video_list: './AirObject/splits/ovis.txt' # Path to video list
+instance_path: './OVIS/annotations_train.json' # Path to ground-truth instance segmentations
+resume: True # Load pre-computed Video Object Dictionary
+video_objects_path: './experiments/OVIS/video_objects.pkl' # Path to Video Object Dictionary
+save_dir: './experiments/OVIS' # Path to save results
+###
+seqlen: 16
+method: 'airobj' # ['seqnet', 'airobj']
+netvlad_model_path: './models/netvlad_model.pth'
+seqnet_model_path: './models/seqnet_model.pth'
+airobj_model_path: './models/airobject_model.pth'
+model:
+  netvlad:
+    descriptor_dim: 256
+    vlad_numc: 32
+  seqnet:
+    encoder_dim: 8192 # SeqNet Baseline
+    out_dim: 4096
+    kernel_size: 1
+  airobj:
+    descriptor_dim: 256
+    points_encoder_dims: [2, 4, 8, 16]
+    hidden_dim: 512
+    dropout: 0
+    alpha: 0.2
+    nheads: 4
+    nout: 2048
+    temporal_encoder_dim: 2048 # AirObject
+    temporal_encoder_out_dim: 2048
+    temporal_kernel_size: 1

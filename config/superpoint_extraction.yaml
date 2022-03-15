@@ -1,0 +1,12 @@
+points_dir: './OVIS/points' # Directory to save extracted SuperPoint features
+img_data_path: './OVIS/train' # Directory to dataset images
+annotations_path: './OVIS/annotations_train.json' # Path to ground-truth instance segmentations
+video_list_path: './AirObject/splits/ovis.txt' # Path to OVIS Video list
+superpoint_model_path: './models/points_model.pth' # Path to SuperPoint Model
+data:
+    normal_size: [480, 640] # min_size, max_size
+model:
+  superpoint:
+    cell : 8
+    detection_threshold: 0.2
+    batch_size: 1

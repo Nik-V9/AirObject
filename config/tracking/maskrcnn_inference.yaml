@@ -1,0 +1,13 @@
+base_dir: '' # Path to Base Directory
+maskrcnn_model_path: '' # Path to MaskRCNN Model
+data:
+    nclass: 81
+    normal_size: [480, 640] # min_size, max_size
+model:
+  maskrcnn:
+    add_maskrcnn: true
+    trainable_layers: 5  # backbone trainable layers
+    fix_backbone: true
+    backbone_type: 'resnet50'
+    image_mean: [0.45, 0.45, 0.45]
+    image_std: [0.225, 0.225, 0.225]

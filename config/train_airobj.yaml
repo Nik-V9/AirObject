@@ -1,0 +1,28 @@
+base_dir: './youtube-vis/train' # YT-VIS Train directory
+videos: './AirObject/splits/ytvis_train_train.txt' # YT-VIS Training Videos List
+log_dir: './experiments/train_airobj' # Logging directory
+airobj_model_path: './models/gcn_model.pth' # Path to YT-VIS Finetuned Graph Attention Encoder
+resume: False
+sum_iter: 
+optimizer_path: ''
+model:
+  airobj:
+    descriptor_dim: 256
+    points_encoder_dims: [2, 4, 8, 16]
+    hidden_dim: 512
+    dropout: 0
+    alpha: 0.2
+    nheads: 4
+    nout: 2048
+    temporal_encoder_dim: 2048
+    temporal_encoder_out_dim: 2048
+    temporal_kernel_size: 1
+    train:
+      seqlen: 4
+      batch_size: 16
+      positive_margin: 1
+      negative_margin: 0.2
+      lambda_d: 1
+      epochs: 15
+      lr: 0.0001
+      checkpoint: 500
